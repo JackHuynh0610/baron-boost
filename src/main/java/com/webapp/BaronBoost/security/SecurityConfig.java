@@ -43,7 +43,7 @@ public class SecurityConfig {
                                 "/updatePassword/resetPassword",
                                 "updatePassword/forgotPassword",
                                 "/api/leaguePrices/**",
-                                "resources/templates/**",
+                                "src/main/resources/templates/**",
                                 "/").permitAll())
                 .authorizeHttpRequests(requests -> requests.anyRequest().authenticated())
                 .sessionManagement(management -> management
