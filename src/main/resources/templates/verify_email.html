@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Email</title>
+    <link rel="stylesheet" href="verify_email.css">
+</head>
+<body>
+    <div class="container">
+        <p>Dear [[NAME]],</p>
+        <p>Welcome to Baron Boost!</p>
+        <p>First, we want to say thank you for signing up and choosing our services!</p>
+        <p>Please take a moment to verify your registration by clicking:</p>
+        <h3><a href="[[URL]]">VERIFY YOUR ACCOUNT</a></h3>
+        <p>Again, thank you for choosing Baron Boost.</p>
+        <p>Sincerely,<br>Baron Boost Team</p>
+        <div class="footer">
+            &copy; <span id="current-year"></span> Baron Boost. All rights reserved.
+        </div>
+        <script>
+            document.getElementById("current-year").textContent = new Date().getFullYear();
+        </script>
+    </div>
+</body>
+</html>
