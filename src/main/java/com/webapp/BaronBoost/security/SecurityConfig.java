@@ -44,7 +44,7 @@ public class SecurityConfig {
                                 "updatePassword/forgotPassword",
                                 "/api/leaguePrices/**",
                                 "src/main/resources/templates/**",
-                                "/").permitAll())
+                                "/api/v1/stripe/**","/").permitAll())
                 .authorizeHttpRequests(requests -> requests.anyRequest().authenticated())
                 .sessionManagement(management -> management
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
