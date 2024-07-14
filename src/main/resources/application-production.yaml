@@ -2,18 +2,6 @@ spring:
   config:
     import: optional:file:.env[.properties]
 
-  mail:
-    host: ${MAIL_HOST}
-    port: ${MAIL_PORT}
-    username: ${MAIL_USERNAME}
-    password: ${MAIL_PASSWORD}
-    properties:
-      mail:
-        smtp:
-          auth: ${MAIL_AUTH}
-          starttls:
-            enable: ${MAIL_STARTTLS_ENABLE}
-
   datasource:
     url: ${DB_URL}
     username: ${DB_USERNAME}
@@ -42,3 +30,6 @@ logging:
     org:
       springframework:
         security: DEBUG
+
+stripe:
+  secretKey: ${STRIPE_SECRET_KEY_LIVE}
