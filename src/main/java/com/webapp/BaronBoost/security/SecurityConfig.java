@@ -41,7 +41,7 @@ public class SecurityConfig {
                                 "/authenticate/signin/**",
                                 "/authenticate/verify",
                                 "/updatePassword/resetPassword",
-                                "updatePassword/forgotPassword",
+                                "/updatePassword/forgotPassword",
                                 "/api/leaguePrices/**",
                                 "src/main/resources/templates/**",
                                 "/api/v1/stripe/**","/").permitAll())
