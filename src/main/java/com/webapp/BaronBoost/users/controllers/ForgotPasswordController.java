@@ -57,17 +57,17 @@ public class ForgotPasswordController {
     private JavaMailSender mailSender;
     private UserService userService;
 
-/*    private String htmlFilePathPR = "/reset_password.html"; //PR = password reset
-    private String cssFilePathPR = "/reset_password.css";
+    // private String htmlFilePathPR = "/reset_password.html"; //PR = password reset
+    // private String cssFilePathPR = "/reset_password.css";
 
-    private String htmlFilePathRPE = "/reset_password_email.html"; //RPE = reset password email
-    private String cssFilePathRPE = "/reset_password_email.css";
+    // private String htmlFilePathRPE = "src/main/resources/templates/reset_password_email.html"; //RPE = reset password email
+    // private String cssFilePathRPE = "src/main/resources/templates/reset_password_email.css";
 
-    private String htmlFilePathPRS = "/password_reset_success.html"; //PRS = password reset success
-    private String cssFilePathPRS = "/password_reset_success.css";
+    // private String htmlFilePathPRS = "/password_reset_success.html"; //PRS = password reset success
+    // private String cssFilePathPRS = "/password_reset_success.css";
 
-    private String htmlFilePathPRF = "/password_reset_fail.html"; //PRF = passsword reset fail
-    private String cssFilePathPRF = "/password_reset_fail.css";*/
+    // private String htmlFilePathPRF = "/password_reset_fail.html"; //PRF = passsword reset fail
+    // private String cssFilePathPRF = "/password_reset_fail.css";
 
     public ForgotPasswordController(UserService userService, JavaMailSender mailSender) {
         this.userService = userService;
@@ -114,107 +114,104 @@ public class ForgotPasswordController {
         String senderEmail = "baronboostservice@gmail.com";
         String senderName = "Baron Boost";
         String subject = "Here's the link to reset your password";
-//        String content = HTMLCSSToStringUtil.mergeHTMLAndCSSWithToken(htmlFilePathRPE, cssFilePathRPE, link);
-        // HTML content with embedded CSS
-        String content = """
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Reset Password Email</title>
-                    <style>
-                        body {
-                            font-family: Arial, sans-serif;
-                            background-color: #1a1a1a;
-                            margin: 0;
-                            padding: 0;
-                            color: #d3d3d3;
-                        }
-                        .container {
-                            width: 90%;
-                            max-width: 600px;
-                            margin: 20px auto;
-                            background-color: #2e2e2e;
-                            border-radius: 8px;
-                            padding: 20px;
-                            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-                            border: 1px solid #4b0082;
-                        }
-                        p {
-                            color: #d3d3d3;
-                            line-height: 1.6;
-                            margin-bottom: 10px;
-                        }
-                        a {
-                            color: #000000;
-                            background-color: #f4f1f7;
-                            border: 1px solid #4b0082;
-                            padding: 10px 20px;
-                            text-decoration: none;
-                            border-radius: 5px;
-                            display: inline-block;
-                            margin-top: 10px;
-                            transition: background-color 0.3s ease;
-                        }
-                        a:visited {
-                            color: #fff; 
-                        }
-                        a:hover {
-                            background-color: #6a0dad;
-                            border-color: #6a0dad;
-                        }
-                        .header {
-                            text-align: center;
-                            margin-bottom: 20px;
-                        }
-                        .header img {
-                            width: 100px;
-                            height: auto;
-                        }
-                        .footer {
-                            text-align: center;
-                            margin-top: 20px;
-                            font-size: 0.9em;
-                            color: #a9a9a9;
-                        }
-                        @media only screen and (max-width: 600px) {
-                            .container {
-                                padding: 10px;
-                            }
-                            a {
-                                padding: 8px 16px;
-                            }
-                            .header img {
-                                width: 80px;
-                            }
-                            .footer {
-                                font-size: 0.8em;
-                            }
-                        }
-                    </style>
-                </head>
-                <body>
-                    <div class="container">
-                        <p>Dear User,</p>
-                        <p>We have received a request to reset your password for your Baron Boost account.</p>
-                        <p>If this request was not made by you, please ignore this email.</p>
-                        <p>Click the link below to securely change your password:</p>
-                        <p><a href="%s">Reset Password</a></p>
-                        <p>If you did not request a password reset, no further action is needed.</p>
-                        <p>Thank you for choosing Baron Boost.</p>
-                        <p>Best regards,</p>
-                        <p>The Baron Boost Team</p>
-                        <div class="footer">
-                            &copy; <span id="current-year"></span> Baron Boost. All rights reserved.
-                        </div>
-                        <script>
-                            document.getElementById("current-year").textContent = new Date().getFullYear();
-                        </script>
-                    </div>
-                </body>
-                </html>
-                """.formatted(link);
+        //String content = HTMLCSSToStringUtil.mergeHTMLAndCSSWithToken(htmlFilePathRPE, cssFilePathRPE, link);
+        String content = "<!DOCTYPE html>\n" +
+    "<html lang=\"en\">\n" +
+    "<head>\n" +
+    "    <meta charset=\"UTF-8\">\n" +
+    "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+    "    <title>Reset Password Email</title>\n" +
+    "    <style>\n" +
+    "        body {\n" +
+    "            font-family: Arial, sans-serif;\n" +
+    "            background-color: #1a1a1a;\n" +
+    "            margin: 0;\n" +
+    "            padding: 0;\n" +
+    "            color: #d3d3d3;\n" +
+    "        }\n" +
+    "        .container {\n" +
+    "            width: 90%;\n" +
+    "            max-width: 600px;\n" +
+    "            margin: 20px auto;\n" +
+    "            background-color: #2e2e2e;\n" +
+    "            border-radius: 8px;\n" +
+    "            padding: 20px;\n" +
+    "            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);\n" +
+    "            border: 1px solid #4b0082;\n" +
+    "        }\n" +
+    "        p {\n" +
+    "            color: #d3d3d3;\n" +
+    "            line-height: 1.6;\n" +
+    "            margin-bottom: 10px;\n" +
+    "        }\n" +
+    "        a {\n" +
+    "            color: #000000;\n" +
+    "            background-color: #f4f1f7;\n" +
+    "            border: 1px solid #4b0082;\n" +
+    "            padding: 10px 20px;\n" +
+    "            text-decoration: none;\n" +
+    "            border-radius: 5px;\n" +
+    "            display: inline-block;\n" +
+    "            margin-top: 10px;\n" +
+    "            transition: background-color 0.3s ease;\n" +
+    "        }\n" +
+    "        a:visited {\n" +
+    "            color: #fff;\n" +
+    "        }\n" +
+    "        a:hover {\n" +
+    "            background-color: #6a0dad;\n" +
+    "            border-color: #6a0dad;\n" +
+    "        }\n" +
+    "        .header {\n" +
+    "            text-align: center;\n" +
+    "            margin-bottom: 20px;\n" +
+    "        }\n" +
+    "        .header img {\n" +
+    "            width: 100px;\n" +
+    "            height: auto;\n" +
+    "        }\n" +
+    "        .footer {\n" +
+    "            text-align: center;\n" +
+    "            margin-top: 20px;\n" +
+    "            font-size: 0.9em;\n" +
+    "            color: #a9a9a9;\n" +
+    "        }\n" +
+    "        @media only screen and (max-width: 600px) {\n" +
+    "            .container {\n" +
+    "                padding: 10px;\n" +
+    "            }\n" +
+    "            a {\n" +
+    "                padding: 8px 16px;\n" +
+    "            }\n" +
+    "            .header img {\n" +
+    "                width: 80px;\n" +
+    "            }\n" +
+    "            .footer {\n" +
+    "                font-size: 0.8em;\n" +
+    "            }\n" +
+    "        }\n" +
+    "    </style>\n" +
+    "</head>\n" +
+    "<body>\n" +
+    "    <div class=\"container\">\n" +
+    "        <p>Dear User,</p>\n" +
+    "        <p>We have received a request to reset your password for your Baron Boost account.</p>\n" +
+    "        <p>If this request was not made by you, please ignore this email.</p>\n" +
+    "        <p>Click the link below to securely change your password:</p>\n" +
+    "        <p><a href=\"" + link + "\">Reset Password</a></p>\n" +
+    "        <p>If you did not request a password reset, no further action is needed.</p>\n" +
+    "        <p>Thank you for choosing Baron Boost.</p>\n" +
+    "        <p>Best regards,</p>\n" +
+    "        <p>The Baron Boost Team</p>\n" +
+    "        <div class=\"footer\">\n" +
+    "            &copy; <span id=\"current-year\"></span> Baron Boost. All rights reserved.\n" +
+    "        </div>\n" +
+    "        <script>\n" +
+    "            document.getElementById(\"current-year\").textContent = new Date().getFullYear();\n" +
+    "        </script>\n" +
+    "    </div>\n" +
+    "</body>\n" +
+    "</html>";
 
         helper.setFrom(senderEmail, senderName);
         helper.setTo(recipientEmail);
